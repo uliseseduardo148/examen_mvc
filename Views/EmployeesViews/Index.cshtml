@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Index";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+
+<h2>Lista de empleados</h2>
+
+<div ng-app="myApp" ng-controller="employeeController" class="container">
+    <strong class="error">{{ error }}</strong>
+    <div class="row">
+        <div class="logs-table col-12">
+            <input type="submit" value="Agregar" ng-click="AddNew()" />
+            <div id="dvDetails">
+                <table cellpadding="12" class="table table-bordered table-hover">
+
+                    <tr ng-repeat="employee in Employees">
+                        <td ng-show="aa">
+
+                            {{employee.Id}}
+
+
+                        </td>
+
+                        <td ng-show="a">
+                            <input type="text" ng-model="employee.EmployeeName" />
+                        </td>
+                        <td ng-hide="a">
+
+                            {{employee.EmployeeName}}
+
+
+                        </td>
+                        <td ng-show="a">
+                            <input type="text" ng-model="employee.Position" />
+                        </td>
+                        <td ng-hide="a">
+
+                            {{employee.Position}}
+
+
+                        </td>
+                        <td ng-show="a">
+                            <input type="text" ng-model="employee.Departament" />
+                        </td>
+                        <td ng-hide="a">
+
+                            {{employee.Departament}}
+
+
+                        </td>
+                        <td ng-show="a">
+                            <input type="text" ng-model="employee.Version" />
+                        </td>
+                        <td ng-hide="a">
+
+                            {{employee.Version}}
+
+
+                        </td>
+                        <td>
+                            <span ng-hide="a" ng-click="a=!a">Editar</span>
+                            <span ng-show="a" ng-click="a=!a">Cancelar</span>
+                            <span ng-show="a" ng-click="UpdateEmployee(employee)">Actualizar</span>
+                            <span ng-click="DeleteEmployee(employee)">Eliminar</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="dvAdd" ng-show="dvEmployee">
+                <p class="dvTask">{{Action}} Nuevo registro</p>
+                <table>
+                    <tr>
+                        <td>Nombre : </td>
+                        <td>
+                            <input type="text" id="txtName" ng-model="employee.EmployeeName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Posición : </td>
+                        <td>
+                            <input type="text" id="txtPosition" ng-model="employee.Position" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Departamento : </td>
+                        <td>
+                            <input type="text" id="txtDepartament" ng-model="employee.Departament" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Versión : </td>
+                        <td>
+                            <input type="number" id="txtVersion" ng-model="employee.Version" />
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" value="Guardar" ng-click="AddEmployee(employee)" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
